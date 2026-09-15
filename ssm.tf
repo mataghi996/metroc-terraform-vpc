@@ -1,5 +1,5 @@
 locals {
-    ssm_parameter = {
+    ssm_parameters = {
         vpc_id = {
             name = "/metroc/vpc/id"
             value = aws_vpc.customVPC.id
@@ -20,17 +20,15 @@ locals {
             name = "/metroc/subnet4/id"
             value = aws_subnet.subnet4.id
         }
-        alb_alb_sg_id = {
+        alb_sg_id = {
             name = "/metroc/alb/sg/id"
-            value = aws_security_group.albsg.id
+            value = aws_security_group.albSG.id
         }
-         alb_ec2_sg_id = {
+        ec2_sg_id = {
             name = "/metroc/ec2/sg/id"
-            value = aws_security_group.ec2sg.id
+            value = aws_security_group.ec2SG.id
         }
-        
     }
-
 }
 
 resource "aws_ssm_parameter" "customVPCSsm" {
